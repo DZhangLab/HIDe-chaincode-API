@@ -9,5 +9,5 @@ To get started, implement the following code on the terminal
     node index.js
 
 You can find the default response by going to http://localhost:3000/ or replace "localhost" with your ip address. 
-
+The application is already tested on Mac. 
     
