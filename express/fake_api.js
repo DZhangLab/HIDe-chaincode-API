@@ -1,5 +1,7 @@
 module.exports = require('./lib/express');
 
+patient_schema = require('./Patient_info.js')
+
 const express = require('express')
 const app = express()
 const port = 3000
@@ -41,8 +43,35 @@ app.get('/insert/:key/:val', (req, res) => {
 })
 
 app.get('/getEntry/:key', (req, res) => {
-    res.send(getEntry(req.params.key))
-    return getEntry(req.params.key)
+
+    const test_info_null = {
+        name : "Bruce",
+        birthyear: 2001,
+        birthmonth: 7,
+        birthday: 2,
+        delegates: []
+    }
+
+    const test_info = {
+        name : "Yiwei",
+        birthyear: 2002,
+        birthmonth: 2,
+        birthday: 12,
+        delegates:["abcd", "efgh", "asfs"]
+    }
+
+
+    console.log(patient_schema.validate(test_info))
+    if (patient_schema.validate(test_info).error == null){
+        if(req.params.key == "Nullarr"){
+            res.json(test_info_null)
+        } else {
+            res.json(test_info)
+        }
+    } else {
+        res.json("error")
+    }  
+    // return getEntry(req.params.key)
 })
 
 app.get('/exist/:key', (req, res) => {
