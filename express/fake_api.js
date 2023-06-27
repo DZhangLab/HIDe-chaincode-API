@@ -49,7 +49,8 @@ app.get('/getEntry/:key', (req, res) => {
         birthyear: 2001,
         birthmonth: 7,
         birthday: 2,
-        delegates: []
+        delegates: [],
+        identity: false
     }
 
     const test_info = {
@@ -57,7 +58,8 @@ app.get('/getEntry/:key', (req, res) => {
         birthyear: 2002,
         birthmonth: 2,
         birthday: 12,
-        delegates:["abcd", "efgh", "asfs"]
+        delegates:["abcd", "efgh", "asfs"],
+        identity: true
     }
 
 
