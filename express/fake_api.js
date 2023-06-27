@@ -43,6 +43,14 @@ app.get('/insert/:key/:val', (req, res) => {
 })
 
 app.get('/getEntry/:key', (req, res) => {
+    const test_dele_not_null = {
+        name : "Bill",
+        birthyear: 2002,
+        birthmonth: 10,
+        birthday: 22,
+        delegates: ["abc", "def", "hyc", "gzy", "www"],
+        identity: false
+    }
 
     const test_info_null = {
         name : "Bruce",
@@ -67,6 +75,8 @@ app.get('/getEntry/:key', (req, res) => {
     if (patient_schema.validate(test_info).error == null){
         if(req.params.key == "Nullarr"){
             res.json(test_info_null)
+        } else if (req.params.key == "Dele"){
+            res.json(test_dele_not_null)
         } else {
             res.json(test_info)
         }
