@@ -26,6 +26,13 @@ function updateEntry(key, val){
     return `Update succesfull: Key: ${key}, Val: ${val}`
 }
 
+function addDelegate(UDID) {
+    const success = "Successfully proposed"
+    const DNE = `Delegate with UDUD: ${UDID} do not exist`
+    const alreadyExist = `Delegate with UDUD: ${UDID} already added`
+
+    return success
+}
 
 
 app.get('/', (req, res) => {
@@ -99,6 +106,16 @@ app.put('/updateEntry/:key/:val', (req, res) => {
     res.send(updateEntry(req.params.key, req.params.val))
     return updateEntry(req.params.key, req.params.val)
 })
+
+app.post('/addDelegate/:UDID', (req, res) => {
+    res.json(addDelegate(req.params.UDID))
+    return addDelegate(req.params.UDID)
+})
+
+// app.get('/addDelegate/:UDID', (req, res) => {
+//     res.json(addDelegate(req.params.UDID))
+//     return addDelegate(req.params.UDID)
+// })
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
