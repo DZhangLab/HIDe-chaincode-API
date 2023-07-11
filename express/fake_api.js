@@ -55,8 +55,9 @@ app.get('/getEntry/:key', (req, res) => {
         birthyear: 2002,
         birthmonth: 10,
         birthday: 22,
-        delegates: ["abc", "def", "hyc", "gzy", "www"],
-        identity: false
+        delegates: ["Lucy", "Hill", "Jack", "Linda", "Adele"],
+        identity: false,
+        description : "This patient have problem falling asleep regularly"
     }
 
     const test_info_null = {
@@ -65,7 +66,8 @@ app.get('/getEntry/:key', (req, res) => {
         birthmonth: 7,
         birthday: 2,
         delegates: [],
-        identity: false
+        identity: false,
+        description: "This patient have bad smell"
     }
 
     const test_info = {
@@ -73,8 +75,9 @@ app.get('/getEntry/:key', (req, res) => {
         birthyear: 2002,
         birthmonth: 2,
         birthday: 12,
-        delegates:["abcd", "efgh", "asfs"],
-        identity: true
+        delegates:["Bruce", "Yiwei", "Jack", "Bill"],
+        identity: true,
+        description: "Expert in Albinism. Got my PHD at Vanderbilt University"
     }
 
 
