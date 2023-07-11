@@ -34,6 +34,10 @@ function addDelegate(UDID) {
     return success
 }
 
+function findLostAccount(UDID) {
+    return "Sucessfully propsoed the lost account process"
+}
+
 
 app.get('/', (req, res) => {
     res.send('Starting Page')
@@ -113,6 +117,10 @@ app.put('/updateEntry/:key/:val', (req, res) => {
 app.post('/addDelegate/:UDID', (req, res) => {
     res.json(addDelegate(req.params.UDID))
     return addDelegate(req.params.UDID)
+})
+
+app.post('/findLostAccount/:UDID', (req, res) => {
+    res.json(findLostAccount(UDID))
 })
 
 // app.get('/addDelegate/:UDID', (req, res) => {
