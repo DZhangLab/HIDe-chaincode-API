@@ -8,7 +8,10 @@ const patient_schema = Joi.object().keys({
   birthday: Joi.number().integer().min(1).max(31),
   delegates: Joi.array().items(Joi.string()),
   identity: Joi.boolean(),
-  description : Joi.string()
+  description : Joi.string(),
+  isNameSetPublic: Joi.boolean(),
+  isBirthInfoSetPublic: Joi.boolean(),
+  isDescriptionSetPublic: Joi.boolean()
 }); 
 
 // const dataToValidate = { 

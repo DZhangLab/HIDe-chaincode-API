@@ -53,35 +53,48 @@ app.get('/insert/:key/:val', (req, res) => {
     return insert(req.params.key, req.params.val)
 })
 
+app.put('/addDelegate/:key', (req, res) => {
+    res.send(addDelegate(req.params.key));
+})
+
 app.get('/getEntry/:key', (req, res) => {
     const test_dele_not_null = {
         name : "Bill",
         birthyear: 2002,
         birthmonth: 10,
         birthday: 22,
-        delegates: ["Lucy", "Hill", "Jack", "Linda", "Adele"],
+        delegates: ["Samuel", "Hill", "Jack", "Linda", "Adele"],
         identity: false,
-        description : "This patient have problem falling asleep regularly"
+        description : "Health-care provider at Vanderbilt University ",
+        isNameSetPublic: true,
+        isBirthInfoSetPublic: true ,
+        isDescriptionSetPublic: true
     }
 
     const test_info_null = {
-        name : "Bruce",
+        name : "David Paxton",
         birthyear: 2001,
         birthmonth: 7,
         birthday: 2,
         delegates: [],
         identity: false,
-        description: "This patient have bad smell"
+        description: "Expert in Albinism. Got my PHD at Vanderbilt University"
+        isNameSetPublic: true,
+        isBirthInfoSetPublic: false,
+        isDescriptionSetPublic: false
     }
 
     const test_info = {
-        name : "Yiwei",
+        name : "Samuel",
         birthyear: 2002,
         birthmonth: 2,
         birthday: 12,
-        delegates:["Bruce", "Yiwei", "Jack", "Bill"],
+        delegates:["Dr. Zhang", "Dr. Lee", "Dr. Chen", "Bill"],
         identity: true,
-        description: "Expert in Albinism. Got my PHD at Vanderbilt University"
+        description: "This patient have bad smell" ,
+        isNameSetPublic: true,
+        isBirthInfoSetPublic: false,
+        isDescriptionSetPublic: true
     }
 
 
@@ -108,6 +121,8 @@ app.delete('/deleteEntry/:key', (req, res) => {
     res.send(deleteEntry(req.params.key))
     return deleteEntry(req.params.key)
 })
+
+
 
 app.put('/updateEntry/:key/:val', (req, res) => {
     res.send(updateEntry(req.params.key, req.params.val))
