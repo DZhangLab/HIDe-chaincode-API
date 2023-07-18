@@ -67,8 +67,10 @@ app.get('/getEntry/:key', (req, res) => {
         identity: false,
         description : "Health-care provider at Vanderbilt University ",
         isNameSetPublic: true,
-        isBirthInfoSetPublic: true ,
-        isDescriptionSetPublic: true
+        isBirthInfoSetPublic: true,
+        isDescriptionSetPublic: true,
+        status: true,
+        isDirectDelegate: false
     }
 
     const test_info_null = {
@@ -78,10 +80,12 @@ app.get('/getEntry/:key', (req, res) => {
         birthday: 2,
         delegates: [],
         identity: false,
-        description: "Expert in Albinism. Got my PHD at Vanderbilt University"
+        description: "Expert in Albinism. Got my PHD at Vanderbilt University",
         isNameSetPublic: true,
         isBirthInfoSetPublic: false,
-        isDescriptionSetPublic: false
+        isDescriptionSetPublic: false,
+        status: true,
+        isDirectDelegate: false
     }
 
     const test_info = {
@@ -94,7 +98,24 @@ app.get('/getEntry/:key', (req, res) => {
         description: "This patient have bad smell" ,
         isNameSetPublic: true,
         isBirthInfoSetPublic: false,
-        isDescriptionSetPublic: true
+        isDescriptionSetPublic: true,
+        status: false,
+        isDirectDelegate: false
+    }
+
+    const direct_delegate = {
+        name : "Lauren",
+        birthyear: 1974,
+        birthmonth: 3,
+        birthday: 27,
+        delegates:["Bill"],
+        identity: false,
+        description: "This" ,
+        isNameSetPublic: true,
+        isBirthInfoSetPublic: false,
+        isDescriptionSetPublic: true,
+        status: false,
+        isDirectDelegate: true
     }
 
 
@@ -104,7 +125,10 @@ app.get('/getEntry/:key', (req, res) => {
             res.json(test_info_null)
         } else if (req.params.key == "Dele"){
             res.json(test_dele_not_null)
-        } else {
+        } else if (req.params.key == "Direct"){
+            res.json(direct_delegate)
+        }
+        else {
             res.json(test_info)
         }
     } else {

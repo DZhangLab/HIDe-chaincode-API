@@ -11,20 +11,13 @@ const patient_schema = Joi.object().keys({
   description : Joi.string(),
   isNameSetPublic: Joi.boolean(),
   isBirthInfoSetPublic: Joi.boolean(),
-  isDescriptionSetPublic: Joi.boolean()
+  isDescriptionSetPublic: Joi.boolean(),
+  // if the status is false, indicating the account is lost and requires the vote
+  status: Joi.boolean(),
+  // if isDirectDelegate is true, indicating they can have control of all the information of their patients
+  isDirectDelegate: Joi.boolean(),
 }); 
 
-// const dataToValidate = { 
-//   name: 'chris', 
-//   birthyear: 1971,
-//   birthmonth: 1,
-//   birthday: 2,
-//   delegates: ['haha', 'ababb']
-// } 
 
-// const result = patient_schema.validate(dataToValidate);
-
-
-// console.log(result)
 
 module.exports = patient_schema
