@@ -6,7 +6,7 @@ const patient_schema = Joi.object().keys({
   birthyear: Joi.number().integer().min(1970).max(2023), 
   birthmonth: Joi.number().integer().min(1).max(12),
   birthday: Joi.number().integer().min(1).max(31),
-  delegates: Joi.array().items(Joi.string()),
+  delegates: Joi.array().items(Joi.array().length(2).ordered(Joi.string(), Joi.boolean())),
   identity: Joi.boolean(),
   description : Joi.string(),
   isNameSetPublic: Joi.boolean(),
