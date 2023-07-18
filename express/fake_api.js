@@ -93,7 +93,7 @@ app.get('/getEntry/:key', (req, res) => {
         birthyear: 2002,
         birthmonth: 2,
         birthday: 12,
-        delegates:["Dr. Zhang", "Dr. Lee", "Dr. Chen", "Bill"],
+        delegates:[["Dr. Zhang", true], ["Dr. Lee", true], ["Dr. Chen", true], ["Bill", false]],
         identity: true,
         description: "This patient have bad smell" ,
         isNameSetPublic: true,
